@@ -1,25 +1,36 @@
-public class Person {
-    String firstName;
-    String lastName;
-    String gender;
-    Person mother;
-    Person father;
+import java.time.LocalDate;
 
-    public Person(String firstName, String lastName, String gender) {
+public class Person {
+    private String firstName;
+    private String lastName;
+    private Gender gender;
+    private Person mother;
+    private Person father;
+    private Person child;
+    private LocalDate dateBirth, dateDeath;
+
+    protected Person(String firstName, String lastName, Gender gender, 
+     LocalDate dateBirth, LocalDate dateDeath) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
-
+        this.dateBirth = dateBirth;
+        this.dateDeath = dateDeath;
     }
 
-    public String setMother(Person mother) {
+    protected String setMother(Person mother) {
         this.mother = mother;
         return "Мать [ " + mother + " ]";
     }
 
-    public String setFather(Person father) {
+    protected String setFather(Person father) {
         this.father = father;
         return "Отец [ " + father + " ]";
+    }
+
+    protected String setChild(Person child) {
+        this.child = child;
+        return "Ребенок [ " + child + " ]";
     }
 
     public String getFirstName() {
@@ -38,7 +49,9 @@ public class Person {
     public String toString() {
         return "Имя: " + firstName + ", "
                 + "Фамилия: " + lastName + ", "
-                + "Пол: " + gender;
+                + "Пол: " + gender + ','
+                + " Дата рожденния: " + dateBirth + ','
+                + " Дата смерти: " + dateDeath;
     }
 
 }
