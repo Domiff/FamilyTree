@@ -1,11 +1,12 @@
 package FamilyTree;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
 import Human.Person;
 
-public class FamilyTree {
+public class FamilyTree implements Serializable {
     List<Person> family;
 
     public FamilyTree() {
@@ -30,7 +31,6 @@ public class FamilyTree {
     @Override
     public String toString() {
         try {
-            System.out.println("Количество людей в семейном древе: " + family.size());
             System.out.println(" ");
             for (int i = 0; i < family.size(); ++i) {
                 System.out.println("Родитель " + family.get(i));

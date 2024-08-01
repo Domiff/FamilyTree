@@ -1,3 +1,8 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 
 import FamilyTree.FamilyTree;
@@ -5,10 +10,24 @@ import Human.Gender;
 import Human.Person;
 
 public class Main {
-        public static void main(String[] args) {
+        public static void main(String[] args) throws IOException, ClassNotFoundException {
                 FamilyTree tree = viewTree();
+                System.out.println("Количество людей в древе: " + 7);
                 System.out.println(tree);
 
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(
+                                new FileOutputStream("person.txt"));
+                objectOutputStream.writeObject(tree);
+                objectOutputStream.close();
+
+                System.out.println("Десериализация объекта: \n");
+
+                ObjectInputStream objectInputStream = new ObjectInputStream(
+                                new FileInputStream("person.txt"));
+                FamilyTree treeRestored = (FamilyTree) objectInputStream.readObject();
+                objectInputStream.close();
+
+                System.out.println(treeRestored);
         }
 
         private static FamilyTree viewTree() {
