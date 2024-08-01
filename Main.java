@@ -36,6 +36,27 @@ public class Main {
                 tree.add(josephFather);
                 tree.add(joseph);
 
+                Person hollyFather = joseph;
+                Person holly = new Person("Holly", "Kujo", Gender.female,
+                                LocalDate.of(1943, 9, 30));
+
+                tree.add(hollyFather);
+                tree.add(holly);
+
+                Person jotaroMother = holly;
+                Person jotaro = new Person("Jotaro", "Kujo", Gender.male,
+                                LocalDate.of(1970, 1, 7));
+
+                tree.add(jotaroMother);
+                tree.add(jotaro);
+
+                Person jolynfather = jotaro;
+                Person jolyn = new Person("Jolyn", "Kujo", Gender.female,
+                                LocalDate.of(1992, 11, 5));
+
+                tree.add(jolynfather);
+                tree.add(jolyn);
+
                 return tree;
         }
 }
