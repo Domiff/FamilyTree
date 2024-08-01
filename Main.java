@@ -1,44 +1,41 @@
 import java.time.LocalDate;
 
+import FamilyTree.FamilyTree;
+import Human.Gender;
+import Human.Person;
+
 public class Main {
-    public static void main(String[] args) {
-        Person jonathan = new Person("Jonathan", "Joestar", Gender.male,
-                LocalDate.of(1868, 2, 22), LocalDate.of(1868, 5, 3));
-        Person jonathanMother = new Person("Mari", "Joestar", Gender.female,
-                LocalDate.of(1843, 8, 4), LocalDate.of(1868, 9, 23));
-        Person jonathanFather = new Person("George", "Joestar", Gender.male,
-                LocalDate.of(1840, 2, 22), LocalDate.of(1892, 3, 13));
+        public static void main(String[] args) {
+                FamilyTree tree = viewTree();
+                System.out.println(tree);
 
-        System.out.println(jonathan);
-        System.out.println(jonathan.setFather(jonathanMother));
-        System.out.println(jonathan.setMother(jonathanFather));
+        }
 
-        System.out.printf("\n");
-        System.out.println("Потомок: ");
-        System.out.printf("\n");
+        private static FamilyTree viewTree() {
+                FamilyTree tree = new FamilyTree();
 
-        Person george = new Person("George", "Joestar", Gender.male,
-                LocalDate.of(1892 , 2, 22), LocalDate.of(1921, 5, 25));
-        Person georgeMother = new Person("Erina", "Pendleton", Gender.female,
-                LocalDate.of(1869 , 12, 2), LocalDate.of(1950, 7,23));
+                Person jonathanFather = new Person("George", "Joestar", Gender.male,
+                                LocalDate.of(1840, 2, 22));
+                Person jonathan = new Person("Jonathan", "Joestar", Gender.male,
+                                LocalDate.of(1868, 2, 22));
 
-        System.out.println(george);
-        System.out.println(george.setMother(georgeMother));
-        System.out.println(george.setFather(jonathan));
-        System.out.println(george.setChild(jonathan));
+                tree.add(jonathanFather);
+                tree.add(jonathan);
 
-        System.out.printf("\n");
-        System.out.println("Потомок: ");
-        System.out.printf("\n");
+                Person georgeFather = jonathan;
+                Person george = new Person("George", "Joestar", Gender.male,
+                                LocalDate.of(1892, 2, 22));
 
-        Person joseph = new Person("Joseph", "Joestar", Gender.male,
-                LocalDate.of(1920, 9, 27), LocalDate.of(2011,11, 3));
-        Person josephMother = new Person("Elizabeth ", "Joestar", Gender.female,
-                LocalDate.of(1888, 12, 22), LocalDate.of(1963, 5, 14));
+                tree.add(georgeFather);
+                tree.add(george);
 
-        System.out.println(joseph);
-        System.out.println(joseph.setMother(josephMother));
-        System.out.println(joseph.setFather(george));
+                Person josephFather = george;
+                Person joseph = new Person("Joseph", "Joestar", Gender.male,
+                                LocalDate.of(1920, 9, 27));
 
-    }
+                tree.add(josephFather);
+                tree.add(joseph);
+
+                return tree;
+        }
 }
