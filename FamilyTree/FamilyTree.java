@@ -28,6 +28,10 @@ public class FamilyTree implements Serializable {
         return false;
     }
 
+    public int getSize(){
+        return family.size();
+    }
+
     @Override
     public String toString() {
         try {
