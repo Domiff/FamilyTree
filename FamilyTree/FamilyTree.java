@@ -1,12 +1,15 @@
 package FamilyTree;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 import Human.Person;
+import Iterator.IteratorPerson;
+import Sort.ComparatorByName;
 
-public class FamilyTree implements Serializable {
+public class FamilyTree implements Serializable, Iterable<Person> {
     List<Person> family;
 
     public FamilyTree() {
@@ -32,6 +35,10 @@ public class FamilyTree implements Serializable {
         return family.size();
     }
 
+    public void sortByName(){
+        family.sort(new ComparatorByName());
+    }
+
     @Override
     public String toString() {
         try {
@@ -45,5 +52,10 @@ public class FamilyTree implements Serializable {
             return " ";
         }
         return " ";
+    }
+
+    @Override
+    public Iterator<Person> iterator() {
+        return new IteratorPerson(family);
     }
 }

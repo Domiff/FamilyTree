@@ -11,12 +11,16 @@ public class Main {
         public static void main(String[] args) throws IOException, ClassNotFoundException {
                 FamilyTree tree = viewTree();
                 System.out.println("Количество людей в древе: " + tree.getSize());
-                // System.out.println(tree);
+                System.out.println(tree);
 
                 save(tree);
 
-                FamilyTree tree3 = read(tree);
-                System.out.println(tree3);
+                // FamilyTree tree3 = read(tree);
+                // System.out.println(tree3);
+
+                System.out.println("Отсортированное по имени древо: ");
+                tree.sortByName();
+                System.out.println(tree);
         }
 
         private static FamilyTree read(FamilyTree tree) {
