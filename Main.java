@@ -21,6 +21,10 @@ public class Main {
                 System.out.println("Отсортированное по имени древо: ");
                 tree.sortByName();
                 System.out.println(tree);
+
+                System.out.println("Отсортированное по возрасту древо: ");
+                tree.sortByDate();
+                System.out.println(tree);
         }
 
         private static FamilyTree read(FamilyTree tree) {

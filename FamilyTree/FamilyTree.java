@@ -7,6 +7,7 @@ import java.util.List;
 
 import Human.Person;
 import Iterator.IteratorPerson;
+import Sort.ComparatorByDate;
 import Sort.ComparatorByName;
 
 public class FamilyTree implements Serializable, Iterable<Person> {
@@ -37,6 +38,10 @@ public class FamilyTree implements Serializable, Iterable<Person> {
 
     public void sortByName(){
         family.sort(new ComparatorByName());
+    }
+
+    public void sortByDate(){
+        family.sort(new ComparatorByDate());
     }
 
     @Override
