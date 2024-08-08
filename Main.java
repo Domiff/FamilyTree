@@ -9,7 +9,7 @@ import Human.Person;
 
 public class Main {
         public static void main(String[] args) throws IOException, ClassNotFoundException {
-                FamilyTree tree = viewTree();
+                FamilyTree<Person> tree = viewTree();
                 System.out.println("Количество людей в древе: " + tree.getSize());
                 System.out.println(tree);
 
@@ -27,19 +27,19 @@ public class Main {
                 System.out.println(tree);
         }
 
-        private static FamilyTree read(FamilyTree tree) {
+        private static FamilyTree<Person> read(FamilyTree<Person> tree) {
                 FileHandler fileHandler = new FileHandler();
                 fileHandler.read();
                 return tree;
         }
 
-        private static void save(FamilyTree tree) {
+        private static void save(FamilyTree<Person> tree) {
                 FileHandler fHandler = new FileHandler();
                 fHandler.save(tree);
         }
 
-        private static FamilyTree viewTree() {
-                FamilyTree tree = new FamilyTree();
+        private static FamilyTree<Person> viewTree() {
+                FamilyTree<Person> tree = new FamilyTree<Person>();
 
                 Person jonathanFather = new Person("George", "Joestar", Gender.male,
                                 LocalDate.of(1840, 2, 22));

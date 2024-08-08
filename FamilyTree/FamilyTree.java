@@ -10,7 +10,7 @@ import Iterator.IteratorPerson;
 import Sort.ComparatorByDate;
 import Sort.ComparatorByName;
 
-public class FamilyTree implements Serializable, Iterable<Person> {
+public class FamilyTree<T> implements Serializable, Iterable<Person> {
     List<Person> family;
 
     public FamilyTree() {
@@ -32,15 +32,15 @@ public class FamilyTree implements Serializable, Iterable<Person> {
         return false;
     }
 
-    public int getSize(){
+    public int getSize() {
         return family.size();
     }
 
-    public void sortByName(){
+    public void sortByName() {
         family.sort(new ComparatorByName());
     }
 
-    public void sortByDate(){
+    public void sortByDate() {
         family.sort(new ComparatorByDate());
     }
 
