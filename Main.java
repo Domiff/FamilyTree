@@ -3,39 +3,46 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 import FamilyTree.FamilyTree;
-import FileManage.FileHandler;
 import Human.Gender;
 import Human.Person;
+import Presenter.Presenter;
+import View.View;
 
 public class Main {
         public static void main(String[] args) throws IOException, ClassNotFoundException {
-                FamilyTree<Person> tree = viewTree();
-                System.out.println("Количество людей в древе: " + tree.getSize());
-                System.out.println(tree);
 
-                save(tree);
+                FamilyTree tree = viewTree();
+                Presenter presenter = new Presenter<Person>();
 
-                // FamilyTree tree3 = read(tree);
-                // System.out.println(tree3);
+                System.out.println("1. Просмотр древа");
+                System.out.println("2. Сортировка по имени");
+                System.out.println("3. Сортировка по возрасту");
+                System.out.println("4. Сохранить древо");
 
-                System.out.println("Отсортированное по имени древо: ");
-                tree.sortByName();
-                System.out.println(tree);
+                View view = new View();
+                int number = view.getAnswer();
 
-                System.out.println("Отсортированное по возрасту древо: ");
-                tree.sortByDate();
-                System.out.println(tree);
-        }
+                switch (number) {
+                        case 1:
+                                System.out.println(tree);
+                                break;
+                        case 2:
+                                presenter.sortByName(tree);
+                                System.out.println(tree);
+                                break;
+                        case 3:
+                                presenter.sortByDate(tree);
+                                System.out.println(tree);
+                                break;
+                        case 4:
+                                presenter.save(tree);
+                                System.out.println("Древо сохранено");
+                                break;
+                        default:
+                                System.out.println("Введена неверная команда");
+                                break;
+                }
 
-        private static FamilyTree<Person> read(FamilyTree<Person> tree) {
-                FileHandler fileHandler = new FileHandler();
-                fileHandler.read();
-                return tree;
-        }
-
-        private static void save(FamilyTree<Person> tree) {
-                FileHandler fHandler = new FileHandler();
-                fHandler.save(tree);
         }
 
         private static FamilyTree<Person> viewTree() {
@@ -86,4 +93,5 @@ public class Main {
 
                 return tree;
         }
+
 }
