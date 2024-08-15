@@ -14,5 +14,4 @@ public class View {
         int number = scanner.nextInt();
         return number;
     }
-
 }

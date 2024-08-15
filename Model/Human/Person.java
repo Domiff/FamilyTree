@@ -7,9 +7,6 @@ public class Person implements Serializable, Comparable<Person> {
     private String firstName;
     private String lastName;
     private Gender gender;
-    private Person mother;
-    private Person father;
-    private Person child;
     private LocalDate dateBirth;
 
     public Person(String firstName, String lastName, Gender gender,
@@ -21,17 +18,14 @@ public class Person implements Serializable, Comparable<Person> {
     }
 
     public String setMother(Person mother) {
-        this.mother = mother;
         return " Мать [ " + mother + " ]";
     }
 
     public String setFather(Person father) {
-        this.father = father;
         return " Отец [ " + father + " ]";
     }
 
     public String setChild(Person child) {
-        this.child = child;
         return " Ребенок [ " + child + " ]";
     }
 

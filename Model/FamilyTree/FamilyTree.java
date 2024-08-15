@@ -36,11 +36,11 @@ public class FamilyTree<T> implements Serializable, Iterable<Person> {
         return family.size();
     }
 
-    public void sortByName(FamilyTree tree) {
+    public void sortByName(FamilyTree<Person> tree) {
         family.sort(new ComparatorByName());
     }
 
-    public void sortByDate(FamilyTree tree) {
+    public void sortByDate(FamilyTree<Person> tree) {
         family.sort(new ComparatorByDate());
     }
 

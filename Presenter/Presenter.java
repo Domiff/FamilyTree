@@ -5,17 +5,15 @@ import FileManage.FileHandler;
 import Human.Person;
 
 public class Presenter<T> {
-    private FamilyTree tree;
-
     public Presenter() {
-        tree = new FamilyTree<T>();
+        new FamilyTree<Person>();
     }
 
-    public void sortByName(FamilyTree tree) {
+    public void sortByName(FamilyTree<Person> tree) {
         tree.sortByName(tree);
     }
 
-    public void sortByDate(FamilyTree tree) {
+    public void sortByDate(FamilyTree<Person> tree) {
         tree.sortByDate(tree);
     }
 
