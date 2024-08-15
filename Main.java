@@ -14,14 +14,6 @@ public class Main {
                 FamilyTree<Person> tree = new FamilyTree<Person>();
                 Presenter<Person> presenter = new Presenter<Person>();
 
-                System.out.println("1. Просмотр древа");
-                System.out.println("2. Сортировка по имени");
-                System.out.println("3. Сортировка по возрасту");
-                System.out.println("4. Сохранить древо");
-
-                View view = new View();
-                int number = view.getAnswer();
-
                 Service service = new Service(tree);
 
                 service.addPerson(new Person("George", "Joestar", Gender.male,
@@ -39,6 +31,13 @@ public class Main {
                 service.addPerson(new Person("Jolyn", "Kujo", Gender.female,
                                 LocalDate.of(1992, 11, 5)), tree);
 
+                System.out.println("1. Просмотр древа");
+                System.out.println("2. Сортировка по имени");
+                System.out.println("3. Сортировка по возрасту");
+                System.out.println("4. Сохранить древо");
+
+                View view = new View();
+                int number = view.getAnswer();
                 switch (number) {
                         case 1:
                                 System.out.println(tree);
